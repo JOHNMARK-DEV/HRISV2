@@ -1,27 +1,25 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
+import { createRouter, createWebHistory } from 'vue-router' 
 import Layout from '../layout/Layout.vue'
+
+import login from '../views/Auth/login.vue'
+
+import EmployeeDashboard from '../views/Dashboard/EmployeeDashboard.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [ 
-    {
-      component: Layout, meta: { requiresAuth: true },
-      children: [
-        {
-          path: '/', component: HomeView, meta: { requiresAuth: true }
-        }
-      ]
+    { 
+      path: '/login', component: login, meta: { requiresAuth: true }
     }, 
     {
       component: Layout, meta: { requiresAuth: true },
       children: [
         {
-          path: '/about', component: AboutView, meta: { requiresAuth: true }
+          path: '/EmployeeDashboard', component: EmployeeDashboard, meta: { requiresAuth: true }
         }
       ]
-    } 
+    }, 
   ]
 })
 

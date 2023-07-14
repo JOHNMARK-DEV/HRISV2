@@ -103,8 +103,8 @@
                                 <li>
                                     <div class="dropdown-divider mb-0"></div>
                                 </li>
-                                <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            class="bx bx-log-out-circle"></i><span>Logout</span></a>
+                                <li><a class="dropdown-item d-flex align-items-center" @click="this.$router.push('/login')"  href="javascript:;"><i
+                                            class="bx bx-log-out-circle" ></i><span>Logout</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -490,52 +490,7 @@
                                 <a href="javascript:;"
                                     class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
                                         class='bx bxl-shopify fs-4'></i>eCommerce Html Templates</a>
-                            </div>
-                            <p class="mb-1 mt-3">Web Designe Company</p>
-                            <div class="list-group">
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-windows fs-4'></i>Best Html Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-dropbox fs-4'></i>Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-opera fs-4'></i>Responsive Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-wordpress fs-4'></i>eCommerce Html Templates</a>
-                            </div>
-                            <p class="mb-1 mt-3">Software Development</p>
-                            <div class="list-group">
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-mailchimp fs-4'></i>Best Html Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-zoom fs-4'></i>Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-sass fs-4'></i>Responsive Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-vk fs-4'></i>eCommerce Html Templates</a>
-                            </div>
-                            <p class="mb-1 mt-3">Online Shoping Portals</p>
-                            <div class="list-group">
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-slack fs-4'></i>Best Html Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-skype fs-4'></i>Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-twitter fs-4'></i>Responsive Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-vimeo fs-4'></i>eCommerce Html Templates</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -548,7 +503,7 @@
             <div class="switcher-body">
                 <div class="d-flex align-items-center">
                     <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
-                    <button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
+                    <button type="button" class="btn-close ms-auto close-switcher" aria-label="Close" @click="onswitchToggle()"></button>
                 </div>
                 <hr />
                 <h6 class="mb-0">Theme Styles</h6>
