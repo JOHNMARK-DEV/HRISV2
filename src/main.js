@@ -14,7 +14,7 @@ import './assets/css/dark-theme.css'
 import './assets/css/semi-dark.css'
 import './assets/css/header-colors.css'
 
-import './assets/js/jquery.min.js'
+import'./assets/js/jquery.min.js'
 import './assets/js/app.js'
 
  

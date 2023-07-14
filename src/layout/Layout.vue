@@ -622,7 +622,8 @@
 </template>
 
 <script>
- 
+
+import $ from 'jquery';
 import { RouterLink, RouterView } from 'vue-router' 
 export default {
     
