@@ -10,7 +10,7 @@ const router = createRouter({
       component: Layout, meta: { requiresAuth: true },
       children: [
         {
-          path: '/', component: HomeView, meta: { requiresAuth: true }
+          path: '/Dashboard', component: HomeView, meta: { requiresAuth: true }
         }
       ]
     }, 
