@@ -1,3 +1,6 @@
+
+import'./assets/js/jquery.min.js'
+
 import './assets/plugins/simplebar/css/simplebar.css'
 import './assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css'
 import './assets/plugins/metismenu/css/metisMenu.min.css'
@@ -14,7 +17,6 @@ import './assets/css/dark-theme.css'
 import './assets/css/semi-dark.css'
 import './assets/css/header-colors.css'
 
-import'./assets/js/jquery.min.js'
 import './assets/js/app.js'
 
  
