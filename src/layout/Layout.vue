@@ -52,7 +52,7 @@
                                             <a class="dropdown-item" href="javascript:;">
                                                 <div class="d-flex align-items-center">
                                                     <div class="user-online">
-                                                        <img  class="msg-avatar"
+                                                        <img  class="msg-avatar" src="../assets//images/avatars/avatar-1.png"
                                                             alt="user avatar">
                                                     </div>
                                                     <div class="flex-grow-1">
