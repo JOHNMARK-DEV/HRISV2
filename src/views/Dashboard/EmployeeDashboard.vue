@@ -3,16 +3,16 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
       <div class="col">
         <div class="card">
-          <div class="card-header bg-success text-white">Card Header</div>
+          <div class="card-header topbar">Card Header</div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><b>Pending Requests</b></li> 
-          </ul> 
+            <li class="list-group-item"><b>Pending Requests</b></li>
+          </ul>
 
         </div>
       </div>
       <div class="col ">
         <div class="card shadow bg-white rounded">
-          <div class="card-header bg-success text-white">My Attendance</div>
+          <div class="card-header topbar">My Attendance</div>
 
           <ul class="list-group list-group-flush list shadow-none">
             <li class="list-group-item d-flex justify-content-between align-items-center border-top">
@@ -35,31 +35,40 @@
               <span class="badge text-secondary rounded-pill">OUT</span>
               <span class="card-text">09:19 PM</span>
             </li>
-
-            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">Dapibus ac facilisis in <span
-                class="badge bg-success rounded-pill">2</span></li>
-            <li class="list-group-item d-flex justify-content-between align-items-center border-bottom">Vestibulum at
-              eros <span class="badge bg-danger rounded-pill">1</span></li> -->
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Show Team Attendance</a>
-          </div>
-
+            <li class="list-group-item d-flex justify-content-between align-items-center border-top">
+              07/14/2023
+              <span class="badge text-secondary rounded-pill">OUT</span>
+              <span class="card-text">09:19 PM</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-top">
+              07/14/2023
+              <span class="badge text-secondary rounded-pill">OUT</span>
+              <span class="card-text">09:19 PM</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-top">
+              07/14/2023
+              <span class="badge text-secondary rounded-pill">OUT</span>
+              <span class="card-text">09:19 PM</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-center align-items-center border-top">
+              <a href="#" class="card-link text-secondary">Show Team Attendance</a>
+            </li> 
+          </ul> 
         </div>
       </div>
       <div class="col">
         <div class="card shadow   rounded">
-          <div class="card-header bg-success text-white">InstaCash</div>
+          <div class="card-header topbar">InstaCash</div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><b>Pending Requests</b></li> 
-          </ul> 
+            <li class="list-group-item"><b>Pending Requests</b></li>
+          </ul>
         </div>
       </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
       <div class="col flex-grow-1">
         <div class="card shadow rounded">
-          <div class="card-header bg-success text-white">Resolution Center</div>
+          <div class="card-header topbar">Resolution Center</div>
 
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
             ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -71,7 +80,7 @@
       </div>
       <div class="col">
         <div class="card shadow rounded ">
-          <div class="card-header bg-success text-white">My Stuff</div>
+          <div class="card-header topbar">My Stuff</div>
 
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><b>Pending Requests</b></li>
@@ -108,11 +117,13 @@
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+.card {
+  min-height: 367px;
+}
+.card-header{
+  position:relative;
+  z-index: 1; 
+  color:#bdbdbd !important;
+  font-weight: bolder;
 }
 </style>

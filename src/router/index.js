@@ -1,17 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router' 
+import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '../layout/Layout.vue'
 
 import login from '../views/Auth/login.vue'
+
+import Employee from '../views/Profile/Employee.vue'
+
 
 import EmployeeDashboard from '../views/Dashboard/EmployeeDashboard.vue'
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [ 
-    { 
+  routes: [
+    {
       path: '/login', component: login, meta: { requiresAuth: true }
-    }, 
+    },
     {
       component: Layout, meta: { requiresAuth: true },
       children: [
@@ -19,7 +22,15 @@ const router = createRouter({
           path: '/EmployeeDashboard', component: EmployeeDashboard, meta: { requiresAuth: true }
         }
       ]
-    }, 
+    },
+    {
+      component: Layout, meta: { requiresAuth: true },
+      children: [
+        {
+          path: '/Employee', component: Employee, meta: { requiresAuth: true }
+        }
+      ]
+    },
   ]
 })
 

@@ -1,7 +1,7 @@
 
 import'./assets/js/jquery.min.js'
 
-import './assets/plugins/simplebar/css/simplebar.css'
+import './assets/plugins/simplebar/css/simplebar.css' 
 // import './assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css'
 import './assets/plugins/metismenu/css/metisMenu.min.css'
 
@@ -20,7 +20,8 @@ import './assets/css/header-colors.css'
 // import './assets/js/app.js'
 import '../src/main.js' 
  
-
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.css';
 
 
 import { createApp } from 'vue'

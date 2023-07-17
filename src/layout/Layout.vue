@@ -52,7 +52,7 @@
                                             <a class="dropdown-item" href="javascript:;">
                                                 <div class="d-flex align-items-center">
                                                     <div class="user-online">
-                                                        <img  class="msg-avatar" src="../assets//images/avatars/avatar-1.png"
+                                                        <img class="msg-avatar" src="../assets//images/avatars/avatar-1.png"
                                                             alt="user avatar">
                                                     </div>
                                                     <div class="flex-grow-1">
@@ -85,13 +85,14 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
+                                <li> 
+                                    <a class="dropdown-item d-flex align-items-center" href="#" @click="this.$router.push('/Employee')"><i
                                             class="bx bx-user fs-5"></i><span>Profile</span></a>
                                 </li>
                                 <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
                                             class="bx bx-cog fs-5"></i><span>Settings</span></a>
                                 </li>
-                                <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
+                                <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"  @click="this.$router.push('/EmployeeDashboard')"><i
                                             class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
                                 </li>
                                 <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
@@ -103,8 +104,8 @@
                                 <li>
                                     <div class="dropdown-divider mb-0"></div>
                                 </li>
-                                <li><a class="dropdown-item d-flex align-items-center" @click="this.$router.push('/login')"  href="javascript:;"><i
-                                            class="bx bx-log-out-circle" ></i><span>Logout</span></a>
+                                <li><a class="dropdown-item d-flex align-items-center" @click="this.$router.push('/login')"
+                                        href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -120,7 +121,7 @@
                         <div class="offcanvas-header border-bottom">
                             <div class="d-flex align-items-center">
                                 <div class="">
-                                    <img class="logo-icon" alt="logo icon">
+                                    <img class="logo-icon" src="../assets//images/avatars/avatar-1.png" alt="logo icon">
                                 </div>
                                 <div class="">
                                     <h4 class="logo-text">Rukada</h4>
@@ -406,52 +407,6 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
-                                        data-bs-toggle="dropdown">
-                                        <div class="parent-icon"><i class='bx bx-line-chart'></i>
-                                        </div>
-                                        <div class="menu-title d-flex align-items-center">Charts</div>
-                                        <div class="ms-auto dropy-icon"><i class='bx bx-chevron-down'></i></div>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="charts-apex-chart.html"><i
-                                                    class='bx bx-bar-chart-alt-2'></i>Apex</a></li>
-                                        <li><a class="dropdown-item" href="charts-chartjs.html"><i
-                                                    class='bx bx-line-chart'></i>Chartjs</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="charts-highcharts.html"><i
-                                                    class='bx bx-pie-chart-alt'></i>HighCharts</a></li>
-                                        <li class="nav-item dropend">
-                                            <a class="dropdown-item dropdown-toggle dropdown-toggle-nocaret"
-                                                href="javascript:;"><i class='bx bx-map-pin'></i>Maps</a>
-                                            <ul class="dropdown-menu submenu">
-                                                <li><a class="dropdown-item" href="map-google-maps.html"><i
-                                                            class='bx bx-radio-circle'></i>Google
-                                                        Maps</a></li>
-                                                <li><a class="dropdown-item" href="map-vector-maps.html"><i
-                                                            class='bx bx-radio-circle'></i>Vector
-                                                        Maps</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
-                                        data-bs-toggle="dropdown">
-                                        <div class="parent-icon"><i class="bx bx-grid-alt"></i>
-                                        </div>
-                                        <div class="menu-title d-flex align-items-center">Tables</div>
-                                        <div class="ms-auto dropy-icon"><i class='bx bx-chevron-down'></i></div>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="table-basic-table.html"><i
-                                                    class='bx bx-table'></i>Basic Table</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="table-datatable.html"><i
-                                                    class='bx bx-data'></i>Data Table</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -490,7 +445,7 @@
                                 <a href="javascript:;"
                                     class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
                                         class='bx bxl-shopify fs-4'></i>eCommerce Html Templates</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -503,7 +458,8 @@
             <div class="switcher-body">
                 <div class="d-flex align-items-center">
                     <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
-                    <button type="button" class="btn-close ms-auto close-switcher" aria-label="Close" @click="onswitchToggle()"></button>
+                    <button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"
+                        @click="onswitchToggle()"></button>
                 </div>
                 <hr />
                 <h6 class="mb-0">Theme Styles</h6>
@@ -533,28 +489,28 @@
                 <div class="header-colors-indigators">
                     <div class="row row-cols-auto g-3">
                         <div class="col">
-                            <div class="indigator headercolor1" @click="onHeadercolor1()" ></div>
+                            <div class="indigator headercolor1" @click="onHeadercolor1()"></div>
                         </div>
                         <div class="col">
-                            <div class="indigator headercolor2"  @click="onHeadercolor2()" ></div>
+                            <div class="indigator headercolor2" @click="onHeadercolor2()"></div>
                         </div>
                         <div class="col">
-                            <div class="indigator headercolor3"  @click="onHeadercolor3()" ></div>
+                            <div class="indigator headercolor3" @click="onHeadercolor3()"></div>
                         </div>
                         <div class="col">
-                            <div class="indigator headercolor4"  @click="onHeadercolor4()" ></div>
+                            <div class="indigator headercolor4" @click="onHeadercolor4()"></div>
                         </div>
                         <div class="col">
-                            <div class="indigator headercolor5"  @click="onHeadercolor5()" ></div>
+                            <div class="indigator headercolor5" @click="onHeadercolor5()"></div>
                         </div>
                         <div class="col">
-                            <div class="indigator headercolor6"  @click="onHeadercolor6()" ></div>
+                            <div class="indigator headercolor6" @click="onHeadercolor6()"></div>
                         </div>
                         <div class="col">
-                            <div class="indigator headercolor7"  @click="onHeadercolor7()" ></div>
+                            <div class="indigator headercolor7" @click="onHeadercolor7()"></div>
                         </div>
                         <div class="col">
-                            <div class="indigator headercolor8" @click="onHeadercolor8()" ></div>
+                            <div class="indigator headercolor8" @click="onHeadercolor8()"></div>
                         </div>
                     </div>
                 </div>
@@ -579,9 +535,9 @@
 <script>
 
 import $ from 'jquery';
-import { RouterLink, RouterView } from 'vue-router' 
+import { RouterLink, RouterView } from 'vue-router'
 export default {
-    
+
     methods: {
         onchangeTheme() {
             if ($(".dark-mode-icon i").attr("class") == 'bx bx-sun') {
@@ -645,3 +601,8 @@ export default {
     }
 } 
 </script>
+<style>
+body {
+    background-color: #f7f7ff !important;
+}
+</style>
