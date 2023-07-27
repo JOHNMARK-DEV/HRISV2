@@ -1,5 +1,5 @@
 
-import'./assets/js/jquery.min.js'
+import'./assets/js/jquery.min.js' 
 
 import './assets/plugins/simplebar/css/simplebar.css' 
 // import './assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css'
@@ -22,16 +22,21 @@ import '../src/main.js'
  
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.css';
+ 
+import 'datatables.net';
+import 'datatables.net-dt/css/jquery.dataTables.css';
+
 
 
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap'
 
 const app = createApp(App)
-
-app.use(router)
+ 
+app.use(router) 
 
 app.mount('#app')

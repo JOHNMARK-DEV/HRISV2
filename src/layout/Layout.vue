@@ -318,93 +318,24 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
                                         data-bs-toggle="dropdown">
-                                        <div class="parent-icon"><i class='bx bx-briefcase-alt'></i>
+                                        <div class="parent-icon"><i class='bx bx-lock'></i>
                                         </div>
-                                        <div class="menu-title d-flex align-items-center">UI Elements</div>
+                                        <div class="menu-title d-flex align-items-center">System Configuration</div>
                                         <div class="ms-auto dropy-icon"><i class='bx bx-chevron-down'></i></div>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a class="dropdown-item" href="widgets.html"><i
-                                                    class='bx bx-wine'></i>Widgets</a></li>
+                                    <ul class="dropdown-menu  w-100"> 
                                         <li class="nav-item dropend">
                                             <a class="dropdown-item dropdown-toggle dropdown-toggle-nocaret"
-                                                href="javascript:;"><i class='bx bx-cart'></i>eCommerce</a>
+                                                href="javascript:;"><i class='bx bx-user fs-5'></i>Account Management</a>
                                             <ul class="dropdown-menu submenu">
                                                 <li><a class="dropdown-item" href="ecommerce-products.html"><i
-                                                            class='bx bx-radio-circle'></i>Products</a></li>
-                                                <li><a class="dropdown-item" href="ecommerce-products-details.html"><i
-                                                            class='bx bx-radio-circle'></i>Product Details</a></li>
+                                                            class='bx bx-radio-circle'></i>Access Control</a></li>
+                                                <li><a class="dropdown-item" href="#"  @click="this.$router.push('/User/user_account')"><i
+                                                            class='bx bx-radio-circle' ></i>User Account</a></li>
                                                 <li><a class="dropdown-item" href="ecommerce-add-new-products.html"><i
-                                                            class='bx bx-radio-circle'></i>Add New Products</a></li>
-                                                <li><a class="dropdown-item" href="ecommerce-orders.html"><i
-                                                            class='bx bx-radio-circle'></i>Orders</a></li>
+                                                            class='bx bx-radio-circle'></i>User Type</a></li> 
                                             </ul>
-                                        </li>
-                                        <li class="nav-item dropend">
-                                            <a class="dropdown-item dropdown-toggle dropdown-toggle-nocaret"
-                                                href="javascript:;"><i class='bx bx-ghost'></i>Components</a>
-                                            <ul class="dropdown-menu scroll-menu">
-                                                <li><a class="dropdown-item" href="component-alerts.html"><i
-                                                            class='bx bx-radio-circle'></i>Alerts</a></li>
-                                                <li><a class="dropdown-item" href="component-accordions.html"><i
-                                                            class='bx bx-radio-circle'></i>Accordions</a></li>
-                                                <li><a class="dropdown-item" href="component-badges.html"><i
-                                                            class='bx bx-radio-circle'></i>Badges</a></li>
-                                                <li><a class="dropdown-item" href="component-buttons.html"><i
-                                                            class='bx bx-radio-circle'></i>Buttons</a></li>
-                                                <li><a class="dropdown-item" href="component-cards.html"><i
-                                                            class='bx bx-radio-circle'></i>Cards</a></li>
-                                                <li><a class="dropdown-item" href="component-carousels.html"><i
-                                                            class='bx bx-radio-circle'></i>Carousels</a></li>
-                                                <li><a class="dropdown-item" href="component-list-groups.html"><i
-                                                            class='bx bx-radio-circle'></i>List Groups</a></li>
-                                                <li><a class="dropdown-item" href="component-media-object.html"><i
-                                                            class='bx bx-radio-circle'></i>Media Objects</a></li>
-                                                <li><a class="dropdown-item" href="component-modals.html"><i
-                                                            class='bx bx-radio-circle'></i>Modals</a></li>
-                                                <li><a class="dropdown-item" href="component-navs-tabs.html"><i
-                                                            class='bx bx-radio-circle'></i>Navs & Tabs</a></li>
-                                                <li><a class="dropdown-item" href="component-navbar.html"><i
-                                                            class='bx bx-radio-circle'></i>Navbar</a></li>
-                                                <li><a class="dropdown-item" href="component-paginations.html"><i
-                                                            class='bx bx-radio-circle'></i>Pagination</a></li>
-                                                <li><a class="dropdown-item" href="component-popovers-tooltips.html"><i
-                                                            class='bx bx-radio-circle'></i>Popovers & Tooltips</a></li>
-                                                <li><a class="dropdown-item" href="component-progress-bars.html"><i
-                                                            class='bx bx-radio-circle'></i>Progress</a></li>
-                                                <li><a class="dropdown-item" href="component-spinners.html"><i
-                                                            class='bx bx-radio-circle'></i>Spinners</a></li>
-                                                <li><a class="dropdown-item" href="component-notifications.html"><i
-                                                            class='bx bx-radio-circle'></i>Notifications</a></li>
-                                                <li><a class="dropdown-item" href="component-avtars-chips.html"><i
-                                                            class='bx bx-radio-circle'></i>Avatrs & Chips</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item dropend">
-                                            <a class="dropdown-item dropdown-toggle dropdown-toggle-nocaret"
-                                                href="javascript:;"><i class='bx bx-card'></i>Content</a>
-                                            <ul class="dropdown-menu submenu">
-                                                <li><a class="dropdown-item" href="content-grid-system.html"><i
-                                                            class='bx bx-radio-circle'></i>Grid System</a></li>
-                                                <li><a class="dropdown-item" href="content-typography.html"><i
-                                                            class='bx bx-radio-circle'></i>Typography</a></li>
-                                                <li><a class="dropdown-item" href="content-text-utilities.html"><i
-                                                            class='bx bx-radio-circle'></i>Text Utilities</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item dropend">
-                                            <a class="dropdown-item dropdown-toggle dropdown-toggle-nocaret"
-                                                href="javascript:;"><i class='bx bx-droplet'></i>Icons</a>
-                                            <ul class="dropdown-menu submenu">
-                                                <li><a class="dropdown-item" href="icons-line-icons.html"><i
-                                                            class='bx bx-radio-circle'></i>Line
-                                                        Icons</a></li>
-                                                <li><a class="dropdown-item" href="icons-boxicons.html"><i
-                                                            class='bx bx-radio-circle'></i>Boxicons</a></li>
-                                                <li><a class="dropdown-item" href="icons-feather-icons.html"><i
-                                                            class='bx bx-radio-circle'></i>Feather Icons</a></li>
-                                            </ul>
-                                        </li>
+                                        </li> 
                                     </ul>
                                 </li>
                             </ul>
