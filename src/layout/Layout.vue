@@ -104,8 +104,8 @@
                                 <li>
                                     <div class="dropdown-divider mb-0"></div>
                                 </li>
-                                <li><a class="dropdown-item d-flex align-items-center" @click="this.$router.push('/login')"
-                                        href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
+                                <li><a class="dropdown-item d-flex align-items-center" @click="onhandleLogout"
+                                        href="javascript:;" ><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -467,9 +467,15 @@
 
 import $ from 'jquery';
 import { RouterLink, RouterView } from 'vue-router'
+
+import AuthService from '../services/online/Authentication/Auth'
 export default {
 
     methods: {
+        onhandleLogout(){
+            const _AuthService = new AuthService()
+            _AuthService.signOut()
+        },
         onchangeTheme() {
             if ($(".dark-mode-icon i").attr("class") == 'bx bx-sun') {
                 $(".dark-mode-icon i").attr("class", "bx bx-moon");

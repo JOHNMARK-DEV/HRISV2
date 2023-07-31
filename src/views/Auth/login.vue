@@ -25,6 +25,7 @@
                               class="form-control"
                               id="inputEmailAddress"
                               placeholder="jhon@example.com"
+                              v-model='credentials.email'
                             />
                           </div>
                           <div class="col-12">
@@ -36,6 +37,7 @@
                                 id="inputChoosePassword"
                                 value="12345678"
                                 placeholder="Enter Password"
+                                v-model='credentials.password'
                               />
                               <a href="javascript:;" @click="onClickHidePassword()" class="input-group-text bg-transparent">
                                 <i v-bind:class="{'bx bx-hide': hidePassword, 'bx bx-show': !hidePassword}"></i>
@@ -53,7 +55,7 @@
                           </div>
                           <div class="col-12">
                             <div class="d-grid">
-                              <button @click="this.$router.push('/EmployeeDashboard')" class="btn btn-primary">Log in</button>
+                              <button @click.prevent="onHandleLogin()" class="btn btn-primary">Log in</button>
                             </div>
                           </div>
                           <div class="col-12">
@@ -75,13 +77,21 @@
   </template>
   
   <script>
+  import AuthService from '../../services/online/Authentication/Auth'
   export default {
     data() {
       return {
-        hidePassword: true
+        hidePassword: true,
+        credentials: {}
       };
-    },
+    }, 
     methods: {
+      onHandleLogin(){
+        const _AuthService = new AuthService()
+        _AuthService.signInWithEmail(this.credentials.email,this.credentials.password) 
+        
+      },
+
       onClickHidePassword() {
         this.hidePassword = !this.hidePassword;
       }

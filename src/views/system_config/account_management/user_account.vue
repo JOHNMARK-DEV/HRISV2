@@ -1,9 +1,9 @@
 <template>
-    <createUserModal ref="userModal" />
     <div class="page-wrapper p-4">
+        <createUserModal ref="userModal" />
         <div class="accordion" id="accordion">
             <div class="d-flex justify-content-between">
-                <h6 class="mb-0 text-uppercase">User Account</h6> 
+                <h6 class="mb-0 text-uppercase">User Account</h6>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Add
                 </button>
@@ -44,10 +44,10 @@
         </div>
     </div>
 </template>
+
 <script>
 import createUserModal from '../account_management//modal/create_user_account.vue'
 import $ from 'jquery';
-import SupabaseService from '../../../services/supabase/supabaseService'
 export default {
     data() {
         return {
@@ -66,9 +66,8 @@ export default {
 
     methods: {
         async fetchTodos() {
-            const supabaseService = new SupabaseService();
             try {
-                this.datas = await supabaseService.fetchTableData('tbl_users');
+                this.datas = await supabase.from('tbl_users').select('*')
                 console.log('this.datas', this.datas)
             } catch (error) {
                 console.error(error);
