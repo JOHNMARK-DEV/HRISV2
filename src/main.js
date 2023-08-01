@@ -18,8 +18,9 @@ import './assets/css/semi-dark.css'
 import './assets/css/header-colors.css'
 
 // import './assets/js/app.js'
-import '../src/main.js' 
- 
+import '../src/main.js'  
+import store from './store/index';
+
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.css';
  
@@ -30,7 +31,7 @@ import 'datatables.net-dt/css/jquery.dataTables.css';
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router/index'
+import router from './router/index' 
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap'
@@ -38,5 +39,6 @@ import 'bootstrap'
 const app = createApp(App)
  
 app.use(router) 
+app.use(store) 
 
 app.mount('#app')

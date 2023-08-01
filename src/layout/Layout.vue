@@ -85,14 +85,16 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li> 
-                                    <a class="dropdown-item d-flex align-items-center" href="#" @click="this.$router.push('/Employee')"><i
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"
+                                        @click="this.$router.push('/Employee')"><i
                                             class="bx bx-user fs-5"></i><span>Profile</span></a>
                                 </li>
                                 <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
                                             class="bx bx-cog fs-5"></i><span>Settings</span></a>
                                 </li>
-                                <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"  @click="this.$router.push('/EmployeeDashboard')"><i
+                                <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"
+                                        @click="this.$router.push('/EmployeeDashboard')"><i
                                             class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
                                 </li>
                                 <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
@@ -105,7 +107,7 @@
                                     <div class="dropdown-divider mb-0"></div>
                                 </li>
                                 <li><a class="dropdown-item d-flex align-items-center" @click="onhandleLogout"
-                                        href="javascript:;" ><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
+                                        href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -323,19 +325,20 @@
                                         <div class="menu-title d-flex align-items-center">System Configuration</div>
                                         <div class="ms-auto dropy-icon"><i class='bx bx-chevron-down'></i></div>
                                     </a>
-                                    <ul class="dropdown-menu  w-100"> 
+                                    <ul class="dropdown-menu  w-100">
                                         <li class="nav-item dropend">
                                             <a class="dropdown-item dropdown-toggle dropdown-toggle-nocaret"
                                                 href="javascript:;"><i class='bx bx-user fs-5'></i>Account Management</a>
                                             <ul class="dropdown-menu submenu">
                                                 <li><a class="dropdown-item" href="ecommerce-products.html"><i
                                                             class='bx bx-radio-circle'></i>Access Control</a></li>
-                                                <li><a class="dropdown-item" href="#"  @click="this.$router.push('/User/user_account')"><i
-                                                            class='bx bx-radio-circle' ></i>User Account</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        @click="this.$router.push('/User/user_account')"><i
+                                                            class='bx bx-radio-circle'></i>User Account</a></li>
                                                 <li><a class="dropdown-item" href="ecommerce-add-new-products.html"><i
-                                                            class='bx bx-radio-circle'></i>User Type</a></li> 
+                                                            class='bx bx-radio-circle'></i>User Type</a></li>
                                             </ul>
-                                        </li> 
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -468,13 +471,26 @@
 import $ from 'jquery';
 import { RouterLink, RouterView } from 'vue-router'
 
-import AuthService from '../services/online/Authentication/Auth'
+import AuthService_Online from '../services/online/Authentication/Auth'
+import AuthService_Local from '../services/local/Authentication/Auth' 
 export default {
 
     methods: {
-        onhandleLogout(){
-            const _AuthService = new AuthService()
-            _AuthService.signOut()
+        onhandleLogout() {
+            if (import.meta.env.VITE_APP_ENV == 'local') {
+                AuthService_Local.signOut()
+                    .then(response => {
+                        if (response.status != 200) return
+                        this.$store.commit('setToken', '')
+                        localStorage.clear();
+                        location.href = '/HRIS/login'
+                    })
+
+            } else {
+                AuthService_Online.signOut()
+                localStorage.clear();
+                location.href = '/HRIS/login'
+            }
         },
         onchangeTheme() {
             if ($(".dark-mode-icon i").attr("class") == 'bx bx-sun') {

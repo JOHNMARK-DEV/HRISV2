@@ -1,11 +1,19 @@
 
-import { createStore } from 'vuex'  
+import { createStore } from 'vuex' 
+import stateRehydrationPlugin from '../plugins/stateRehydrationPlugin'
 
 const index = createStore({ 
+    plugins: [stateRehydrationPlugin],
     state() {
-        return {}
+        return {
+            token:'', 
+        }
     },
-    mutations: {}
+    mutations: {  
+        setToken(state, value) {
+            state.token = value 
+        }, 
+    }
 })
 
 export default index

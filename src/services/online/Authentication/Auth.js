@@ -1,7 +1,7 @@
 import router from '../../../router';
 import { supabase } from '../supabase'
 
-class Auth {
+export default {
 
     async signUp(EMAIL, PASSWORD) {
         try {
@@ -20,9 +20,9 @@ class Auth {
         } catch (error) {
             console.error("Error during sign up:", error.message);
         }
-    }
+    },
 
-    async signInWithEmail(EMAIL, PASSWORD) {
+    async signIn(EMAIL, PASSWORD) {
         if (!supabase) {
             throw new Error("Supabase client not initialized.");
         }
@@ -33,17 +33,15 @@ class Auth {
 
         if (error) {
             throw new Error(error.message);
-        }
-        
-        router.push('/User/EmployeeDashboard')
-    }
+        }  
+    },
+
     async signOut() {
         try {
             let { error } = await supabase.auth.signOut()
+            router.push('/login')
         } catch (error) {
             throw new Error(error.message);
         }
-    }
-
-}
-export default Auth
+    } 
+} 

@@ -3,6 +3,7 @@ import Layout from '../../../layout/Layout.vue'
 // import Employee from '../views/Profile/Employee.vue'
 import EmployeeDashboard from '../../../views/Dashboard/EmployeeDashboard.vue'
 import user_account from '../../../views/system_config/account_management/user_account.vue'
+import Employee from '../../../views/profile/Employee.vue'
 
 
 const userRouter = { 
@@ -21,6 +22,14 @@ const userRouter = {
             children: [
                 {
                     path: '/User/user_account', component: user_account, meta: { requiresAuth: true }
+                }
+            ]
+        },
+        {
+            component: Layout, meta: { requiresAuth: true },
+            children: [
+                {
+                    path: '/User/Employee', component: Employee, meta: { requiresAuth: true }
                 }
             ]
         },
