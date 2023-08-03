@@ -1,14 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import authRouter from './auth/authRouter'
-import userRouter from './system_config/user_management/userRouter'
+import auth from './routes/auth'
+import employee from './routes/employee'
+import dashboard from './routes/dashboard'
 import { supabase } from '../services/online/supabase'
 import AuthService_Local from '../services/local/Authentication/Auth'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
 
   routes: [
-    ...authRouter.routes,
-    ...userRouter.routes,
+    ...auth.routes,
+    ...employee.routes,
+    ...dashboard.routes,
   ]
 })
 

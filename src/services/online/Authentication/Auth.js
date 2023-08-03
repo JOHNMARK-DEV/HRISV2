@@ -34,6 +34,7 @@ export default {
         if (error) {
             throw new Error(error.message);
         }  
+        return data
     },
 
     async signOut() {

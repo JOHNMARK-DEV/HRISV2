@@ -21,19 +21,18 @@
                           <label for="inputEmailAddress" class="form-label">Email</label>
                           <input type="email" class="form-control" id="inputEmailAddress" placeholder="jhon@example.com"
                             v-model='credentials.email' />
-                          <p class="text-danger"  v-if="credentials.email == ''">*This field is required</p>
+                          <p class="text-danger" v-if="credentials.email == ''">*This field is required</p>
                         </div>
                         <div class="col-12">
                           <label for="inputChoosePassword" class="form-label">Password</label>
                           <div class="input-group" id="show_hide_password">
                             <input :type="hidePassword ? 'password' : 'text'" class="form-control border-end-0"
-                              id="inputChoosePassword"  placeholder="Enter Password"
-                              v-model='credentials.password' />
+                              id="inputChoosePassword" placeholder="Enter Password" v-model='credentials.password' />
                             <a href="javascript:;" @click="onClickHidePassword()" class="input-group-text bg-transparent">
                               <i v-bind:class="{ 'bx bx-hide': hidePassword, 'bx bx-show': !hidePassword }"></i>
-                            </a> 
+                            </a>
                           </div>
-                          
+
                           <p class="text-danger" v-if="credentials.password == ''">*This field is required</p>
                         </div>
                         <div class="col-md-6">
@@ -78,40 +77,34 @@ export default {
     };
   },
   methods: {
-    onHandleLogin() {
-
+    async onHandleLogin() {
       if (import.meta.env.VITE_APP_ENV == 'local') {
         AuthService_Local.signIn(this.credentials.email, this.credentials.password)
           .then(response => {
             if (response.status != 200) {
-              alert('working')
               this.errorMessage = response
             }
             this.$store.commit('setToken', response.data.token)
-            console.log(response.data.token)
-            location.href = '/HRIS/User/EmployeeDashboard'
-          })
-          .catch(err => { 
-            alert(err)
-          }) 
-      } else { 
-        AuthService_Online.signIn(this.credentials.email, this.credentials.password)
-          .then(response => {
-            if (response.status != 200) return
-            this.$store.commit('setToken', response.data)
-            router.push('/HRIS/User/EmployeeDashboard')
+            location.href = '/HRIS/Dashboard'
           })
           .catch(err => {
             alert(err)
           })
+      } else { 
+        let user = await AuthService_Online.signIn(this.credentials.email, this.credentials.password)
+
+        // Access the authentication token
+        const authToken = user?.access_token;
+        this.$store.commit('setToken', authToken)
+        router.push('/Dashboard')
       }
-
-    },
-
-    onClickHidePassword() {
-      this.hidePassword = !this.hidePassword;
     }
+
+  },
+
+  onClickHidePassword() {
+    this.hidePassword = !this.hidePassword;
   }
-};
+} 
 </script>
   

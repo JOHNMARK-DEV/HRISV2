@@ -87,7 +87,7 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center" href="#"
-                                        @click="this.$router.push('/Employee')"><i
+                                        @click="this.$router.push('/Employee/profile')"><i
                                             class="bx bx-user fs-5"></i><span>Profile</span></a>
                                 </li>
                                 <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
@@ -339,7 +339,19 @@
                                                             class='bx bx-radio-circle'></i>User Type</a></li>
                                             </ul>
                                         </li>
+                                        <li class="nav-item dropend">
+                                            <a class="dropdown-item dropdown-toggle dropdown-toggle-nocaret"
+                                                href="javascript:;"><i class='bx bx-user fs-5'></i>Employee Management</a>
+                                            <ul class="dropdown-menu submenu">
+                                                <li><a class="dropdown-item" href="#" @click="this.$router.push('/Employee/list')"><i
+                                                            class='bx bx-radio-circle'></i>View</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        @click="this.$router.push('/Employee/create')"><i
+                                                            class='bx bx-radio-circle'></i>Create</a></li> 
+                                            </ul>
+                                        </li>
                                     </ul>
+
                                 </li>
                             </ul>
                         </div>
@@ -472,7 +484,7 @@ import $ from 'jquery';
 import { RouterLink, RouterView } from 'vue-router'
 
 import AuthService_Online from '../services/online/Authentication/Auth'
-import AuthService_Local from '../services/local/Authentication/Auth' 
+import AuthService_Local from '../services/local/Authentication/Auth'
 export default {
 
     methods: {
