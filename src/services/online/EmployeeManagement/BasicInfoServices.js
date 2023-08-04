@@ -37,16 +37,26 @@ export default {
         }
     },
 
-    async show() {
+    async fetchAll() {
         try {
             let { data: tbl_users, error } = await supabase
                 .from('tbl_users')
-                .select('firstName,lastName')
+                .select('*')
 
             if (error) {
                 throw new Error(error.message);
             }
-            return tbl_users
+            const employees = tbl_users.map(data => {
+                return {
+                    name: data.first_name + " " + data.middle_name + " " + data.last_name,
+                    position: data.position_id,
+                    office: data.office_id,
+                    age: data.age,
+                    start_date: data.start_date ,
+
+                } 
+            })
+            return employees
         } catch (error) {
             console.error("Error :", error.message);
         }

@@ -569,5 +569,6 @@ export default {
 <style>
 body {
     background-color: #f7f7ff !important;
+    color:black
 }
 </style>
