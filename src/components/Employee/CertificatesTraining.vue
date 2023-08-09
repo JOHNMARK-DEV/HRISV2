@@ -4,27 +4,20 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Education Type</th>
-                        <th scope="col">School</th>
+                        <th scope="col">Title</th> 
                         <th scope="col">From</th>
                         <th scope="col">To</th>
-                        <th scope="col">Degree</th>
+                        <!-- <th scope="col">Degree</th> -->
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(row, index) in info">
-                        <td scope="col" :contenteditable="true" @input="updateCell($event, index, 'education_type')">{{
-                            row.education_type }}</td>
-                        <td scope="col" :contenteditable="true" @input="updateCell($event, index, 'school')">{{ row.school
-                        }}
-                        </td>
+                        <td scope="col" :contenteditable="true" @input="updateCell($event, index, 'title')">{{
+                            row.title }}</td>  
                         <td scope="col" :contenteditable="true" @input="updateCell($event, index, 'from')">{{ row.from }}
                         </td>
-                        <td scope="col" :contenteditable="true" @input="updateCell($event, index, 'to')">{{ row.to }}</td>
-                        <td scope="col" :contenteditable="true" @input="updateCell($event, index, 'degree')">{{ row.degree
-                        }}
-                        </td>
+                        <td scope="col" :contenteditable="true" @input="updateCell($event, index, 'to')">{{ row.to }}</td> 
                         <th scope="col">
                             <button class="btn btn-primary" @click="addRow(index)">Add</button>
                             <button class="btn btn-danger" @click="deleteRow(index)">Remove</button>
@@ -38,7 +31,7 @@
  
 <script>
 // SERVICES
-import EducationServices_Online from '../../services/online/EmployeeManagement/EducationServices'
+import CertificatesServices_Online from '../../services/online/EmployeeManagement/CertificatesServices'
 
 import { defineComponent } from "vue";
 export default defineComponent({
@@ -68,7 +61,7 @@ export default defineComponent({
         async onload() {
             this.recordId = this.$store.state.recordId
             if (this.recordId) {
-                this.info = await EducationServices_Online.getById(this.recordId)
+                this.info = await CertificatesServices_Online.getById(this.recordId)
             }
         },
 
@@ -80,7 +73,7 @@ export default defineComponent({
             } else {
 
                 
-                await EducationServices_Online.handleDelete(this.removeIds)
+                await CertificatesServices_Online.handleDelete(this.removeIds)
 
                 delete this.info.id 
                 for (let index = 0; index < this.info.length; index++) {
@@ -91,9 +84,9 @@ export default defineComponent({
                     let data
                     if (id != null && id > 0) {
                         delete this.info[index].id
-                        data = await EducationServices_Online.handleUpdate(id, this.info[index])
+                        data = await CertificatesServices_Online.handleUpdate(id, this.info[index])
                     } else {
-                        data = await EducationServices_Online.handleSave(this.info[index])
+                        data = await CertificatesServices_Online.handleSave(this.info[index])
                     }
 
                     if (data) {

@@ -7,11 +7,15 @@ const index = createStore({
     state() {
         return {
             token:'', 
+            recordId:'', 
         }
     },
     mutations: {  
         setToken(state, value) {
             state.token = value 
+        }, 
+        setRecordId(state, value) {
+            state.recordId = value 
         }, 
     }
 })

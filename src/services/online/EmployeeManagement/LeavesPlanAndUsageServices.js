@@ -1,11 +1,10 @@
- import { supabase } from '../supabase'
+import { supabase } from '../supabase'
 
-export default {
-
+export default { 
     async handleSave(info) {
         try {
             const { data, error } = await supabase
-                .from('tbl_users')
+                .from('tb_emp_leave_usage')
                 .insert([
                     info
                 ])
@@ -14,25 +13,24 @@ export default {
             if (error) {
                 throw new Error(error.message);
             } 
-            // console.log('insert',data[0].id)
-            return data[0].id
+            return data
         } catch (error) {
             console.error("Error :", error.message);
         }
     },
 
     async handleUpdate(id, info) {
-        try { 
+        try {
             const { data, error } = await supabase
-                .from('tbl_users')
+                .from('tb_emp_leave_usage')
                 .update(info)
-                .eq('id', id)
+                .eq('emp_id', id)
                 .select()
 
             if (error) {
                 throw new Error(error.message);
-            } 
-            return data[0].id
+            }
+            return data
         } catch (error) {
             console.error("Error :", error.message);
         }
@@ -40,31 +38,25 @@ export default {
 
     async getAll() {
         try {
-            let { data: tbl_users, error } = await supabase
-                .from('tbl_users')
+            let { data: tb_emp_leave_usage, error } = await supabase
+                .from('tb_emp_leave_usage')
                 .select('*')
 
             if (error) {
                 throw new Error(error.message);
             }
-            const employees = tbl_users.map(data => {
-                return { 
-                    id: data.id ,
-                    name: data.first_name + " " + data.middle_name + " " + data.last_name, 
-                } 
-            })
-            return employees
+            return tb_emp_leave_usage
         } catch (error) {
             console.error("Error :", error.message);
         }
-    },
-
-    async getById(id) {
+    }, 
+    
+    async getById(id) { 
         try {
             let { data: tbl_users, error } = await supabase
-                .from('tbl_users') 
+                .from('tb_emp_leave_usage') 
                 .select('*')
-                .eq("id",id)
+                .eq("emp_id",id)
 
             if (error) {
                 throw new Error(error.message);

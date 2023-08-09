@@ -1,6 +1,6 @@
 <template>
     <div class="container page-wrapper p-4">
-        <h6 class="mb-4 text-uppercase">Employee list</h6>
+        <h6 class="mb-4 text-uppercase">Employee Information</h6>
         <div class="accordion" id="accordion">
             <div class="accordion-item ">
                 <h2 class="accordion-header " id="headingBasicInfo">
@@ -35,6 +35,20 @@
                 <h2 class="accordion-header" id="headingWorkSchedule">
                     <button class="accordion-button collapsed topbar text-white" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseWorkSchedule" aria-expanded="false" aria-controls="collapseWorkSchedule">
+                        Work History
+                    </button>
+                </h2>
+                <div id="collapseWorkSchedule" class="accordion-collapse collapse" aria-labelledby="headingWorkSchedule"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <WorkHistory ref="refWorkHistory" />
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingWorkSchedule">
+                    <button class="accordion-button collapsed topbar text-white" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseWorkSchedule" aria-expanded="false" aria-controls="collapseWorkSchedule">
                         Work Schedule
                     </button>
                 </h2>
@@ -60,10 +74,24 @@
                 </div>
             </div>
             <div class="accordion-item">
+                <h2 class="accordion-header" id="headingCertificatesTraining">
+                    <button class="accordion-button collapsed topbar text-white" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseCertificatesTraining" aria-expanded="false" aria-controls="collapseCertificatesTraining">
+                        CertificatesTraining / Training
+                    </button>
+                </h2>
+                <div id="collapseCertificatesTraining" class="accordion-collapse collapse" aria-labelledby="headingCertificatesTraining"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <CertificatesTraining ref="refCertificatesTraining" />
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
                 <h2 class="accordion-header" id="headingEducational">
                     <button class="accordion-button collapsed topbar text-white" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseEducational" aria-expanded="false" aria-controls="collapseEducational">
-                        Goverment Information
+                        Educational Background
                     </button>
                 </h2>
                 <div id="collapseEducational" class="accordion-collapse collapse" aria-labelledby="headingEducational"
@@ -162,7 +190,7 @@
                 </div>
             </div>
             <div class="fixed-bottom d-flex justify-content-around bg-white p-1 text-center align-items-center">
-                <a class="h6" href="">BACK TO SEARCH</a>
+                <a class="h6" href="#" @click="this.$router.push('/Employee/list')">BACK TO SEARCH</a>
                 <button class="btn btn-primary ml-4" @click="handleSave()">
                     Save
                 </button>
@@ -174,16 +202,20 @@
 <script>
 
 // COMPONENTS
+
+import Memo from '../../../components/Employee/Memo.vue'
+import WorkHistory from '../../../components/Employee/WorkHistory.vue'
 import BasicInfo from '../../../components/Employee/BasicInfo.vue'
 import WorkInfo from '../../../components/Employee/WorkInfo.vue'
 import WorkSchedule from '../../../components/Employee/WorkSchedule.vue'
 import GovermentInfo from '../../../components/Employee/GovermentInfo.vue'
 import EducationBackground from '../../../components/Employee/EducationBackground.vue'
+import CertificatesTraining from '../../../components/Employee/CertificatesTraining.vue'
 import PerformanceManagement from '../../../components/Employee/PerformanceManagement.vue'
 import ContactInfo from '../../../components/Employee/ContactInfo.vue'
 import LeavesPlanAndUsage from '../../../components/Employee/LeavesPlanAndUsage.vue'
-import Memo from '../../../components/Employee/Memo.vue'
-import Documents from '../../../components/Employee/Documents.vue'
+
+// import Documents from '../../../components/Employee/Documents.vue'
 import { ref } from "vue";
 // const BasicInfo = () => import('../../components/Employee/BasicInfo.vue')
 export default {
@@ -194,11 +226,13 @@ export default {
         WorkSchedule,
         GovermentInfo,
         EducationBackground,
+        CertificatesTraining,
         PerformanceManagement,
         ContactInfo,
         LeavesPlanAndUsage,
         Memo,
-        Documents
+        WorkHistory
+        // Documents
 
     },
     setup() {
@@ -207,18 +241,30 @@ export default {
         const refWorkSchedule = ref(null);
         const refGovermentInfo = ref(null); 
         const refEducationBackground = ref(null); 
+        const refCertificatesTraining = ref(null);  
         const refPerformanceManagement = ref(null); 
         const refContactInfo = ref(null); 
         const refLeavesPlanAndUsage = ref(null); 
         const refMemo = ref(null); 
         const refDocuments = ref(null); 
         const refSysAdmin = ref(null); 
+        const refWorkHistory = ref(null); 
 
     },
     methods: {
         async handleSave() {
-            this.$refs.refBasicInfo.handleSave() 
-            this.$refs.refWorkInfo.handleSave() 
+            const parentId = await this.$refs.refBasicInfo.handleSave()   
+            await this.$refs.refWorkInfo.handleSave(parentId) 
+            await this.$refs.refGovermentInfo.handleSave(parentId) 
+            await this.$refs.refWorkSchedule.handleSave(parentId) 
+            await this.$refs.refEducationBackground.handleSave(parentId) 
+            await this.$refs.refCertificatesTraining.handleSave(parentId) 
+            await this.$refs.refLeavesPlanAndUsage.handleSave(parentId) 
+            
+            alert('success')
+            // reset selected record
+            // this.$store.commit('setRecordId',0) 
+            // this.$router.push('/Employee/list')
         }
     }
 };

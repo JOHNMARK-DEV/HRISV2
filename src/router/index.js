@@ -20,7 +20,7 @@ async function getUserSession(next) {
 
     const localUser = await AuthService_Local.getSession(); 
     if (localUser.data == null || localUser.data == '') {
-      next('/unauthorized')
+      next('/login')
     } else {
       next();
     }
@@ -29,7 +29,7 @@ async function getUserSession(next) {
 
     const localUser = await supabase.auth.getSession();
     if (localUser.data.session == null) {
-      next('/unauthorized')
+      next('/login')
     } else {
       next();
     }

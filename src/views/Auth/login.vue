@@ -34,16 +34,7 @@
                           </div>
 
                           <p class="text-danger" v-if="credentials.password == ''">*This field is required</p>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
-                            <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
-                          </div>
-                        </div>
-                        <div class="col-md-6 text-end">
-                          <a href="auth-basic-forgot-password.html">Forgot Password?</a>
-                        </div>
+                        </div> 
                         <div class="col-12">
                           <div class="d-grid">
                             <button @click.prevent="onHandleLogin()" class="btn btn-primary">Log in</button>

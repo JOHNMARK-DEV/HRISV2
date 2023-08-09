@@ -17,10 +17,10 @@
                                 <tr>
                                     <th></th>
                                     <th>First name</th>
-                                    <th>Position</th>
+                                    <!-- <th>Position</th>
                                     <th>Office</th>
                                     <th>Age</th>
-                                    <th>Start date</th>
+                                    <th>Start date</th> -->
                                     <!-- <th>Salary</th> -->
                                 </tr>
                             </thead>
@@ -59,40 +59,52 @@ export default {
     },
 
     mounted() {
-        this.fetch()
+
+        // reset selected record
+        this.$store.commit('setRecordId', 0)
+        
+        this.onload()
         const refTable = ref(null)
     },
 
     methods: {
-        async fetch() {
-            this.datas = await BasicInfoServices_Online.fetchAll()
-
+        async onload() {
+            this.datas = await BasicInfoServices_Online.getAll()
             const dataTable = $(this.$refs.refTable).DataTable({
-                data:this.datas,
+                data: this.datas,
                 columns: [
                     { title: 'Action' },
-                    { title: 'Name', data: 'name' },  
-                    { title: 'Position', data: 'position' },
-                    { title: 'Office', data: 'office' },
-                    { title: 'Age', data: 'age' },
-                    { title: 'Start date', data: 'start_date' },
-                ], 
+                    { title: 'Name', data: 'name' },
+                ],
                 columnDefs: [
                     {
                         targets: 0,
                         render: function (data, type, row, meta) {
-                            console.log(data, type, meta)
                             return '<button class="btn btn-sm btn-secondary" data-id="' + row.id + '" >Update</button>';
                         },
                     },
                 ],
             });
+            const vm = this;
+            $(this.$refs.refTable).on('click', 'button', function () {
+                const index = dataTable.row($(this).parents('tr')).index();
+                if (typeof index !== 'undefined') {
+                    vm.selectedIndex(index);
+
+                }
+            });
         },
+
+        selectedIndex(index) {
+            // GET ID FROM TABLE USING INDEX
+            this.$store.commit('setRecordId', this.datas[index].id)
+            this.$router.push('/Employee/create')
+        }
     }
 }
 </script>
 <style>
-td{
-    color:black !important;
+td {
+    color: black !important;
 }
 </style>
